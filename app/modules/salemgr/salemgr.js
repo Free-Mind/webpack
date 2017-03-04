@@ -5,17 +5,18 @@ import 'antd/dist/antd.less'
 class Salemgr extends Component{
 
 	render() {
-		const dataSource = [{
-            key: '1',
-            name: '胡彦斌',
-            age: 32,
-            address: '西湖区湖底公园1号'
-        }, {
-            key: '2',
-            name: '胡彦祖',
-            age: 42,
-            address: '西湖区湖底公园1号'
-        }];
+		// const dataSource = [{
+  //           key: '1',
+  //           name: '胡彦斌',
+  //           age: 32,
+  //           address: '西湖区湖底公园1号'
+  //       }, {
+  //           key: '2',
+  //           name: '胡彦祖',
+  //           age: 42,
+  //           address: '西湖区湖底公园1号'
+  //       }];
+        const products = this.props.products;
         const columns = [{
             title: '姓名',
             dataIndex: 'name',
@@ -30,7 +31,7 @@ class Salemgr extends Component{
             key: 'address',
         }];
         return (
-            <Table dataSource={dataSource} columns={columns}/>
+            <Table dataSource={products} columns={columns}/>
         )
     }
 }

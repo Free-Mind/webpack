@@ -2,12 +2,12 @@ import React from 'react'				//导入react框架
 import {render} from 'react-dom' 
 import {Provider} from 'react-redux'
 import {createStore} from 'redux'
-import todoApp from './reducers'
+import products from './modules/salemgr/salemgrreducer'
 import App from './components/App'
 import {Router, browserHistory} from 'react-router'
 import routes from './routes'
 
-let store = createStore(todoApp,window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());		//创建新的store
+let store = createStore(products,window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());		//创建新的store
 
 render(
 	<Provider store = {store}>
