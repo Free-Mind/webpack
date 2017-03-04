@@ -15,14 +15,18 @@ module.exports = {
 	plugins:[
 
 	],
-
 	module:{
 		loaders:[
 			{
+                test:/\.js$/,
 				loaders:['babel-loader'],
 				exclude:'/node/modules/',
 				include:__dirname
-			}
+			},
+            {
+            	test: /\.less$/,
+				loader: "style-loader!css-loader!less-loader"
+            }
 		]
 	}
 

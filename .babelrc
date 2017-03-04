@@ -5,6 +5,7 @@
 		"stage-2"
 	],
 	"plugins":[
-		
+		"transform-object-assign",
+		["import",{"libraryName": "antd", "style": false}]
 	]
 }

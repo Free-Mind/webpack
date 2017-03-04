@@ -4,14 +4,14 @@ import {Provider} from 'react-redux'
 import {createStore} from 'redux'
 import todoApp from './reducers'
 import App from './components/App'
-import {Router, hashHistory} from 'react-router'
+import {Router, browserHistory} from 'react-router'
 import routes from './routes'
 
 let store = createStore(todoApp,window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());		//创建新的store
 
 render(
 	<Provider store = {store}>
-		<Router history={hashHistory} routes={routes}/>
+		<Router history={browserHistory} routes={routes}/>
 	</Provider>,
 	document.getElementById('app')
 	);//store通过provider传递给子组件
