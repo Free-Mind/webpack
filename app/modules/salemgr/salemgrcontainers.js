@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import Salemgr from './salemgr'
-
+import { deleteProduct } from "./actions"
 const getUndelectedProducts = products => {
 	return products.filter(product => !product.deleted);
 }
@@ -11,4 +11,12 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps,null)(Salemgr);
+const mapDispatchToProps = (dispatch) => {
+	return {
+		onDelete: (key) => {
+			dispatch(deleteProduct(key));
+		}
+	}
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(Salemgr);

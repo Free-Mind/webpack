@@ -11,13 +11,13 @@ const product = (state,action) => {
             if(state.key != action.key)
                 return state;
             else{
-                Object.assign({},state,{deleted:true});
+                return Object.assign({},state,{deleted:true});
             }
         case "UPDATE_PRODUCT":
             if(state.key != action.key){
                 return state;
             }else{
-                Object.assign({},state,
+                return Object.assign({},state,
                     {
                         key:action.key,
                         name:action.name,

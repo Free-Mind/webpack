@@ -1,11 +1,11 @@
 import React,{ Component } from 'react'
-import {Table} from 'antd'
+import {Table,Popconfirm } from 'antd'
 import 'antd/dist/antd.less'
 
 class Salemgr extends Component{
 
 	render() {
-        const products = this.props.products;
+        const {products,onDelete} = this.props;
         const columns = [{
             title: '商品编码',
             dataIndex: 'key',
@@ -21,10 +21,10 @@ class Salemgr extends Component{
         }, {
             title: "操作",
             key: "action",
-            render: (text, record) => (
-                <span>
-                    <a>删除</a>
-                </span>
+            render: (text, record,index) => (
+                <Popconfirm title="确定删除？" onConfirm = {() => onDelete(record.key)}>
+                    <a href="#">删除</a>
+                </Popconfirm> 
             )
         }
         ];
