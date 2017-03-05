@@ -1,17 +1,51 @@
-const products = (state = []) => {
-    const data = [{
-            key: '1',
-            name: '胡彦斌',
-            age: 32,
-            address: '西湖区湖底公园1号',
-            deleted: false
-        }, {
-            key: '2',
-            name: '胡彦祖',
-            age: 42,
-            address: '西湖区湖底公园1号',
-            deleted: false
-        }];
-	return data;
+const product = (state,action) => {
+    switch (action.type){
+        case "ADD_PRODUCT":
+            return {
+                key:action.key,
+                name: action.name,
+                price:action.price,
+                deleted:false
+            };
+        case "DELETE_PRODUCT":
+            if(state.key != action.key)
+                return state;
+            else{
+                Object.assign({},state,{deleted:true});
+            }
+        case "UPDATE_PRODUCT":
+            if(state.key != action.key){
+                return state;
+            }else{
+                Object.assign({},state,
+                    {
+                        key:action.key,
+                        name:action.name,
+                        price:action.price,
+                        deleted:action.deleted
+                    })
+            }
+        default:
+            return state;
+    }
+
+}
+
+const products = (state = [],action) => {
+    switch (action.type){
+        case "ADD_PRODUCT":
+            return [
+                ...state,
+                product(undefined,action)
+            ];
+        case "SHOW_PRODUCT":
+            return state;
+        case "DELETE_PRODUCT":
+            return state.map(t => product(t,action));
+        case "UPDATE_PRODUCT":
+            return state.map(t => product(t,action));
+        default:
+            return state;
+    }
 }
 export default products

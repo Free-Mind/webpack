@@ -6,9 +6,9 @@ const getUndelectedProducts = products => {
 }
 
 const mapStateToProps = (state) => {
-	return {
-		products: getUndelectedProducts(state)
-	}
+    return {
+        products: getUndelectedProducts(state)
+    }
 }
 
 export default connect(mapStateToProps,null)(Salemgr);

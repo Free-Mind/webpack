@@ -5,11 +5,12 @@ import Salemgr from './modules/salemgr/salemgr';
 import Salemgrpage from './modules/salemgr/salemgrpage';
 import Salelistmgr from './modules/salelistmgr/salelistmgr';
 import App from './modules/app/app'
-
+import Addproductpage from './modules/addproduct/addproductpage'
 export  default (
     <Route path="/" component = {App}>
         <IndexRoute component={Home}/>
         <Route path="salemgr" component={Salemgrpage}/>
         <Route path="salelistmgr" component={Salelistmgr}/>
+        <Route path="addproduct" component={Addproductpage}/>
     </Route>
 )
